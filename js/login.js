@@ -1,6 +1,9 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
+window.addEventListener("load", inicio);
 
-});
+function inicio(){
+    document.getElementById("idBoton").addEventListener("click", finestraSecundaria);
+}
+
+function finestraSecundaria (){
+    window.location.replace("index2.html")
+    }
