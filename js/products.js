@@ -19,7 +19,7 @@ function inicio(){
 
 function showCategoriesList(array){
     
-    let htmlContentToAppend = `<h1>Lista de productos</h1><br>`;
+    let htmlContentToAppend = "";
     for(let i = 0; i < array.length; i++){
         let category = array[i];
         htmlContentToAppend += 
