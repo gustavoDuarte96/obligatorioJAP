@@ -5,23 +5,126 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Inicio de sesion - ecommerce</title>
-    <link href="css/styleLogin.css" rel="stylesheet">
-    <script src="js/login.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
-<body class="text-center">
-    <form class="form-signin" id="idFromulario">
-        <img class="mb-4" src="img/login.png" alt="" width="250" height="104">
-        <h1 class="h3 mb-3 font-weight-normal">Iniciar sesion</h1>
-        <label for="inputEmail" class="sr-only">Usuario</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Ingrear e-mail" required="" autofocus="">
-        <label for="inputPassword" class="sr-only">Contraseña</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Ingresar contraseña" required="">
-        <div class="checkbox mb-3">
-            <label>
-            <input type="checkbox" value="remember-me"> Recordar
-            </label>
+<body>
+
+    <!--Barra de navegacion style="padding-left: 70%;"-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="" style="padding-left: 10%;">Obligatorio</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav"style="display: flex; justify-content: flex-end;">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#idIngreso">Iniciar sesion</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"  data-bs-toggle="modal" data-bs-target="#idRegistro">Registrarse</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <input type="button" value="Ingresar" id="idBoton" class="btn btn-lg btn-primary btn-block">
-    </form>
+      </nav>
+
+      <!--Ventana emergente para registrarse-->
+      <div class="modal" tabindex="-1" id="idRegistro">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Registro</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="idFormulario">
+                <div class="form-group">
+                    <input type="text" id="idUsuario" class="form-control" placeholder="Ingrese usuario" required style="margin-bottom: 2%;">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="idPassword" class="form-control" placeholder="Ingrese contraseña" required style="margin-bottom: 2%;">
+                </div>
+                <button type="submit" class="btn btn-primary" id="botonRegistro">Registrarse</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <!--Ventana emergente para iniciar sesion-->
+            <div class="modal" tabindex="-1" id="idIngreso">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Inicio de sesion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form id="idFormularioCreado">
+                      <div class="form-group">
+                          <input type="text" id="idUsuarioCreado" class="form-control" placeholder="Ingrese usuario" required style="margin-bottom: 2%;">
+                      </div>
+                      <div class="form-group">
+                          <input type="password" id="idPasswordCreado" class="form-control" placeholder="Ingrese contraseña" required style="margin-bottom: 2%;">
+                      </div>
+                      <button type="submit" class="btn btn-secondary btn-block" id="botonInicio">Iniciar sesion</button>
+                      <br>
+                      <br>
+                      <div style="text-align: center;">
+                        <p>Pueden iniciar sesion tambien con:</p>
+                        <a id="iniciarGoogle" style="cursor: pointer;"><img src="img/logo google.png" width="10%" alt="Iniciar con Google"></a>
+                        <a id="iniciarFacebook" style="cursor: pointer;"><img src="img/logo facebook.png" width="10%" alt="Iniciar con Facebook"></a>
+                        <a id="iniciarGithub" style="cursor: pointer;"><img src="img/github logo.png" width="10%" alt="Iniciar con GitHub"></a>
+                        
+
+                      </div>
+                  
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+      <main>
+          <img src="img/login.png" alt="" width="100%">
+      </main>
 </body>
+
+<!--scipts de bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+
+<!--scripts de firebase-->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyC8NQOcpjjS1k6DROOGt0JJxF_8XNzmusA",
+    authDomain: "obligatoriojap-80e37.firebaseapp.com",
+    projectId: "obligatoriojap-80e37",
+    storageBucket: "obligatoriojap-80e37.appspot.com",
+    messagingSenderId: "863963758853",
+    appId: "1:863963758853:web:332f64b926182cc22df76c",
+    measurementId: "G-9XT3QE0CJJ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const fs = firebase.firestore();
+  firebase.analytics();
+</script>
+
+<script src="js/login.js"></script>
 </html>
