@@ -22,7 +22,11 @@ function modal(){
             })
             .catch(err => {
                 formulario.reset();
-                alert("Usuario ya registrado");
+                if(registroContraseña.length <= 7){
+                    alert("Contraseña corta, debe superar los 8 digitos")
+                }else{
+                    alert("Usuario ya registrado");
+                }
             })
     
     })
