@@ -2,7 +2,6 @@ window.addEventListener("load", inicio);
 
 function inicio(){
     modal();
-    document.getElementById("botonRegistro").addEventListener("click", sacarModal);
 }
 
 function modal(){
@@ -81,11 +80,3 @@ function modal(){
 
     })
 }
-
-function sacarModal(){
-    document.getElementById("idRegistro").style.display = "none";
-    alert("Te has registrado correctamente!");
-    window.location.replace("index2.html");
-}
-
-
