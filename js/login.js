@@ -22,11 +22,22 @@ function modal(){
             })
             .catch(err => {
                 formulario.reset();
-                if(registroContraseña.length <= 7){
-                    alert("Contraseña corta, debe superar los 8 digitos")
-                }else{
-                    alert("Usuario ya registrado");
+                let esMail = false;
+                let contraseñaCorrecta = false;
+                for(let i = 0 ; i < registroUsuario.length ; i++){
+                    if(registroUsuario[i] == "@"){
+                        esMail = true;
+                    }
                 }
+                if(registroContraseña.length <= 7){
+                    contraseñaCorrecta = false;
+                }
+                if(!esMail || !contraseñaCorrecta){
+                    alert("Debe ingresar un email correcto y la contraseña debe superar los 8 digitos");
+                }else{
+                    alert("El mail ingresado ya esta registrado");
+                }
+
             })
     
     })
