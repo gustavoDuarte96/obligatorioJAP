@@ -29,8 +29,8 @@ function modal(){
                         esMail = true;
                     }
                 }
-                if(registroContraseña.length <= 7){
-                    contraseñaCorrecta = false;
+                if(registroContraseña.length >= 8){
+                    contraseñaCorrecta = true;
                 }
                 if(!esMail || !contraseñaCorrecta){
                     alert("Debe ingresar un email correcto y la contraseña debe superar los 8 digitos");
