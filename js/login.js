@@ -1,14 +1,13 @@
 window.addEventListener("load", modal);
 
 function modal() {
-  const formulario = document.querySelector("#idFormulario");
 
+//Registro de usuario
+  const formulario = document.querySelector("#idFormulario");
   formulario.addEventListener("submit", (e) => {
     e.preventDefault();
-
     const registroUsuario = document.querySelector("#idUsuario").value;
     const registroContraseña = document.querySelector("#idPassword").value;
-
     auth
       .createUserWithEmailAndPassword(registroUsuario, registroContraseña)
       .then((userCredential) => {
@@ -45,6 +44,7 @@ function modal() {
       });
   });
 
+  //Iniciar sesion con Google
   const googleSesion = document.querySelector("#iniciarGoogle");
   googleSesion.addEventListener("click", (e) => {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -58,6 +58,7 @@ function modal() {
       .catch((err) => {});
   });
 
+  //Iniciar sesion con Facebook
   const facebookSesion = document.querySelector("#iniciarFacebook");
   facebookSesion.addEventListener("click", (e) => {
     const provider = new firebase.auth.FacebookAuthProvider();
@@ -71,6 +72,7 @@ function modal() {
       .catch((err) => {});
   });
 
+  //Iniciar sesion con GitHub
   const githubSesion = document.querySelector("#iniciarGithub");
   githubSesion.addEventListener("click", (e) => {
     const provider = new firebase.auth.GithubAuthProvider();
@@ -84,12 +86,12 @@ function modal() {
       .catch((err) => {});
   });
 
+  //Iniciar sesion con usuario creado
   const formularioInicio = document.querySelector("#idFormularioCreado");
   formularioInicio.addEventListener("submit", (e) => {
     e.preventDefault();
     const usuarioInit = document.querySelector("#idUsuarioCreado").value;
     const passwordInit = document.querySelector("#idPasswordCreado").value;
-
     auth
       .signInWithEmailAndPassword(usuarioInit, passwordInit)
       .then((userCredential) => {
