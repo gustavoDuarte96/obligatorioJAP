@@ -16,12 +16,14 @@ function modal(){
         auth
             .createUserWithEmailAndPassword(registroUsuario, registroContraseña)
             .then(userCredential => {
+                localStorage.usuario = JSON.stringify(registroUsuario);
                 formulario.reset();
                 alert("Te has registrado correctamente!");
                 window.location.replace("index2.html");            
             })
             .catch(err => {
-                formulario.reset();
+                const divError = document.querySelector('#idErrores');
+                divError.innerHTML = "";
                 let esMail = false;
                 let contraseñaCorrecta = false;
                 for(let i = 0 ; i < registroUsuario.length ; i++){
@@ -34,8 +36,11 @@ function modal(){
                 }
                 if(!esMail || !contraseñaCorrecta){
                     alert("Debe ingresar un email correcto y la contraseña debe superar los 8 digitos");
+                    divError.innerHTML = `<p style="color: red;">Debe ingresar un email correcto y la contraseña debe superar los 8 digitos</p>`
+                    formulario.reset();
                 }else{
                     alert("El mail ingresado ya esta registrado");
+                    formulario.reset();
                 }
 
             })

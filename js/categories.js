@@ -5,6 +5,7 @@ var currentCategoriesArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
+let personita = JSON.parse(localStorage.usuario);
 
 function sortCategories(criteria, array){
     let result = [];

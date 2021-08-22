@@ -1,5 +1,5 @@
 var category = {};
-
+let personita = JSON.parse(localStorage.usuario);
 function showImagesGallery(array){
 
     let htmlContentToAppend = "";

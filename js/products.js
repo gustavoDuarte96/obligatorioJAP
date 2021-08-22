@@ -1,5 +1,6 @@
 window.addEventListener("load", inicio);
 function inicio(){
+    let personita = JSON.parse(localStorage.usuario);
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         
         if (resultObj.status === "ok")
