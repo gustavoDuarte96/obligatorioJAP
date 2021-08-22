@@ -18,7 +18,12 @@ function modal(){
             .then(userCredential => {
                 localStorage.usuario = JSON.stringify(registroUsuario);
                 formulario.reset();
+                const divError = document.querySelector('#idErrores');
+                divError.innerHTML = "";
                 formulario.innerHTML = `<h3 style="color: green;">Te has registrado correctamente!</h3>`
+                setTimeout(() => {
+                    console.log("1 Segundo esperado")
+                  }, 1000);
                 window.location.replace("index2.html");            
             })
             .catch(err => {
@@ -35,11 +40,10 @@ function modal(){
                     contraseñaCorrecta = true;
                 }
                 if(!esMail || !contraseñaCorrecta){
-                    alert("Debe ingresar un email correcto y la contraseña debe superar los 8 digitos");
                     divError.innerHTML = `<p style="color: red;">Debe ingresar un email correcto y la contraseña debe superar los 8 digitos</p>`
                     formulario.reset();
                 }else{
-                    alert("El mail ingresado ya esta registrado");
+                    divError.innerHTML = `<p style="color: red;">Este correo ya esta ingresado</p>`
                     formulario.reset();
                 }
 
