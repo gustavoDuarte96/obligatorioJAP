@@ -24,7 +24,7 @@ function modal(){
                 setTimeout(() => {
                     console.log("1 Segundo esperado")
                   }, 1000);
-                window.location.replace("index2.html");            
+                window.location.replace("home.html");            
             })
             .catch(err => {
                 const divError = document.querySelector('#idErrores');
@@ -56,7 +56,6 @@ function modal(){
         const provider = new firebase.auth.GoogleAuthProvider();
         auth.signInWithPopup(provider)
             .then(result => {
-                window.location.replace("index2.html");
             })
             .catch(err => {
             })
@@ -95,7 +94,7 @@ function modal(){
             .then(userCredential => {
                 formularioInicio.reset();
                 alert("Ingresado con exito!");
-                window.location.replace("index2.html");
+                window.location.replace("home.html");
             })
             .catch(err => {
                 formularioInicio.reset();
