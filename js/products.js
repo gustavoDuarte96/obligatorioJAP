@@ -15,6 +15,16 @@ function inicio(){
         }
         
     });
+    const ordenarD = document.querySelector('#');
+    googleSesion.addEventListener('click', e => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        auth.signInWithPopup(provider)
+            .then(result => {
+                window.location.replace("index2.html");
+            })
+            .catch(err => {
+            })
+    })
     
 }
 

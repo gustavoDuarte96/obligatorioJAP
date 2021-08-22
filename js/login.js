@@ -18,7 +18,7 @@ function modal(){
             .then(userCredential => {
                 localStorage.usuario = JSON.stringify(registroUsuario);
                 formulario.reset();
-                alert("Te has registrado correctamente!");
+                formulario.innerHTML = `<h3 style="color: green;">Te has registrado correctamente!</h3>`
                 window.location.replace("index2.html");            
             })
             .catch(err => {
