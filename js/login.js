@@ -56,6 +56,7 @@ function modal(){
         const provider = new firebase.auth.GoogleAuthProvider();
         auth.signInWithPopup(provider)
             .then(result => {
+                window.location.replace("home.html");
             })
             .catch(err => {
             })
@@ -66,7 +67,7 @@ function modal(){
         const provider = new firebase.auth.FacebookAuthProvider();
         auth.signInWithPopup(provider)
             .then(result => {
-                
+                window.location.replace("home.html");
             })
             .catch(err => {
             })
@@ -77,7 +78,7 @@ function modal(){
         const provider = new firebase.auth.GithubAuthProvider();
         auth.signInWithPopup(provider)
             .then(result => {
-                
+                window.location.replace("home.html");
             })
             .catch(err => {
             })
