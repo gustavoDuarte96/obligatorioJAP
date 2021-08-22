@@ -32,11 +32,11 @@ function modal() {
             esMail = true;
           }
         }
-        if (registroContraseña.length >= 8) {
+        if (registroContraseña.length >= 6) {
           contraseñaCorrecta = true;
         }
         if (!esMail || !contraseñaCorrecta) {
-          divError.innerHTML = `<p style="color: red;">Debe ingresar un email correcto y la contraseña debe superar los 8 digitos</p>`;
+          divError.innerHTML = `<p style="color: red;">Debe ingresar un email correcto y la contraseña debe superar los 6 digitos</p>`;
           formulario.reset();
         } else {
           divError.innerHTML = `<p style="color: red;">Este correo ya esta ingresado</p>`;
