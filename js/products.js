@@ -7,6 +7,8 @@ function inicio(){
 }
 document.getElementById("idLabelAscendente").addEventListener("click", imprimir);
 document.getElementById("idLabelDescendente").addEventListener("click", imprimir);
+document.getElementById("sortByCount").addEventListener("click", imprimir);
+document.getElementById("idSearch").addEventListener("keyup", buscador);
 
 function imprimir(){
     let personita = JSON.parse(localStorage.usuario);
@@ -49,6 +51,18 @@ function imprimir(){
                     return 0;
                 });
             }
+            if(document.getElementById("idCount").checked){
+                alert("Descendente");
+                categoriesArray.sort(function (a, b){
+                    if(a.soldCount < b.soldCount){
+                        return 1;
+                    }
+                    if(a.soldCount > b.soldCount){
+                        return -1;
+                    }
+                    return 0;
+                });
+            }
 
             showCategoriesList(categoriesArray);
             
@@ -56,6 +70,26 @@ function imprimir(){
         }
         
     });   
+}
+
+function buscador(){
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        
+        if (resultObj.status === "ok")
+        {
+            let buscado = document.getElementById("idSearch").value;
+            categoriesArray = resultObj.data;
+            let listaBuscado = [];
+            //Muestro las categorías ordenadas
+            for(let autos of categoriesArray){
+                if(auto.name.toLowerCase() == buscado.toLowerCase()){
+                    listaBuscado.push(autos);
+                }
+            }
+            showCategoriesList(listaBuscado);
+    
+        }      
+    }); 
 }
 
 function descendente(lista){
