@@ -15,20 +15,11 @@ function imprimir(){
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         
         if (resultObj.status === "ok")
-        {
-            
+        {       
             categoriesArray = resultObj.data;
             //Muestro las categorías ordenadas
-            /*let min = Number.MAX_VALUE;
-            for(let auto of categoriesArray){
-                if(auto.cost < min){
-                    min = auto.cost
-                }
-            }
-            document.getElementById("rangeFilterCountMin").value = min;
-            */
+
             if(document.getElementById("idAscendente").checked){
-                alert("Ascendente");
                 categoriesArray.sort(function (a, b){
                     if(a.cost > b.cost){
                         return 1;
@@ -40,7 +31,6 @@ function imprimir(){
                 });
             }
             if(document.getElementById("idDescendente").checked){
-                alert("Descendente");
                 categoriesArray.sort(function (a, b){
                     if(a.cost < b.cost){
                         return 1;
@@ -52,7 +42,6 @@ function imprimir(){
                 });
             }
             if(document.getElementById("idCount").checked){
-                alert("Descendente");
                 categoriesArray.sort(function (a, b){
                     if(a.soldCount < b.soldCount){
                         return 1;
@@ -134,6 +123,39 @@ function imprimirFiltrado(){
             categoriesArray = resultObj.data;
             //Muestro las categorías ordenadas
             let arrayFiltrado = ordenarPorPrecio2(categoriesArray);
+            if(document.getElementById("idAscendente").checked){
+                arrayFiltrado.sort(function (a, b){
+                    if(a.cost > b.cost){
+                        return 1;
+                    }
+                    if(a.cost < b.cost){
+                        return -1;
+                    }
+                    return 0;
+                });
+            }
+            if(document.getElementById("idDescendente").checked){
+                arrayFiltrado.sort(function (a, b){
+                    if(a.cost < b.cost){
+                        return 1;
+                    }
+                    if(a.cost > b.cost){
+                        return -1;
+                    }
+                    return 0;
+                });
+            }
+            if(document.getElementById("idCount").checked){
+                arrayFiltrado.sort(function (a, b){
+                    if(a.soldCount < b.soldCount){
+                        return 1;
+                    }
+                    if(a.soldCount > b.soldCount){
+                        return -1;
+                    }
+                    return 0;
+                });
+            }
             showCategoriesList(arrayFiltrado);
     
         }      
