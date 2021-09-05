@@ -1,7 +1,9 @@
 window.addEventListener("load", modal);
 
 function modal() {
-
+  if(localStorage.length > 0){
+    window.location.replace("home.html");
+  }
 //Registro de usuario
   const formulario = document.querySelector("#idFormulario");
   formulario.addEventListener("submit", (e) => {
@@ -49,13 +51,21 @@ function modal() {
   googleSesion.addEventListener("click", (e) => {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth
-      .signInWithPopup(provider)
-      .then((result) => {
-        const registroUsuario = "Cuenta de Google";
-        localStorage.usuario = JSON.stringify(registroUsuario);
-        window.location.replace("home.html");
-      })
-      .catch((err) => {});
+    .signInWithPopup(provider)
+    .then((result) => {
+      const user = firebase.auth().currentUser;
+      if (user !== null) {
+        const displayName = user.displayName;
+        const email = user.email;
+        const photoURL = user.photoURL;
+        const emailVerified = user.emailVerified;
+        const uid = user.uid;
+      }
+      const registroUsuario = "Cuenta de Google";
+      localStorage.usuario = JSON.stringify(displayName);
+      window.location.replace("home.html");
+    })
+    .catch((err) => {});
   });
 
   //Iniciar sesion con Facebook
