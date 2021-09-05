@@ -50,15 +50,6 @@ function modal() {
   const googleSesion = document.querySelector("#iniciarGoogle");
   googleSesion.addEventListener("click", (e) => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    const user = firebase.auth().currentUser;
-    if (user !== null) {
-      const displayName = user.displayName;
-      const email = user.email;
-      const photoURL = user.photoURL;
-      const emailVerified = user.emailVerified;
-      const uid = user.uid;
-    }
-    localStorage.usuario = JSON.stringify(displayName);
     auth
     .signInWithPopup(provider)
     .then((result) => {

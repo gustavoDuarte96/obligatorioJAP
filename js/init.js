@@ -11,6 +11,17 @@ if(localStorage.length == 0){
   window.location.replace("index.html");
   
 }
+const user = firebase.auth().currentUser;
+    if (user !== null) {
+      const displayName = user.displayName;
+      const email = user.email;
+      const photoURL = user.photoURL;
+      const emailVerified = user.emailVerified;
+      const uid = user.uid;
+    }
+    localStorage.usuario = JSON.stringify(displayName);
+
+    alert(displayName)
 var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
 }
