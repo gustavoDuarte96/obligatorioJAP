@@ -21,7 +21,7 @@ function modal() {
         setTimeout(() => {
           console.log("1 Segundo esperado");
         }, 1000);
-        window.location.replace("home.html");
+        window.location.replace("formularioUsuario.html");
       })
       .catch((err) => {
         const divError = document.querySelector("#idErrores");
@@ -53,7 +53,7 @@ function modal() {
     auth
     .signInWithPopup(provider)
     .then((result) => {
-      window.location.replace("home.html");
+      window.location.replace("formularioUsuario.html");
     })
     .catch((err) => {});
   });
@@ -67,7 +67,7 @@ function modal() {
       .then((result) => {
         const registroUsuario = "Cuenta de Facebook";
         localStorage.usuario = JSON.stringify(registroUsuario);
-        window.location.replace("home.html");
+        window.location.replace("formularioUsuario.html");
       })
       .catch((err) => {});
   });
@@ -81,7 +81,7 @@ function modal() {
       .then((result) => {
         const registroUsuario = "Cuenta de GitHub";
         localStorage.usuario = JSON.stringify(registroUsuario);
-        window.location.replace("home.html");
+        window.location.replace("formularioUsuario.html");
       })
       .catch((err) => {});
   });
